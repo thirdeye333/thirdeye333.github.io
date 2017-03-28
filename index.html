@@ -24,7 +24,7 @@
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav navbar-right">
 	        <li><a href="#">Home</a></li>
-	        <li><a href="#">Mission</a></li>
+	        <li><a href="#mission">Mission</a></li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
@@ -38,7 +38,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="about">
+	<div id="mission" class="about">
 		<div class="container">
 			<h2>What? When? Why?</h2>
 			<div class="line"></div>
@@ -50,7 +50,28 @@
 			</div>
 		</div>
 	</div>
+	<footer id="main-footer">
+		<div class="container">
+			Web Designed & Developed by <a href="http://paperinv.com">Paper Inv</a>
+		</div>
+	</footer>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+	$('a[href^="#"]').on('click',function (e) {
+	    e.preventDefault();
+
+	    var target = this.hash;
+	    var $target = $(target);
+
+	    $('html, body').stop().animate({
+	        'scrollTop': $target.offset().top
+	    }, 900, 'swing', function () {
+	        window.location.hash = target;
+	    });
+	});
+});
+</script>
 </html>
